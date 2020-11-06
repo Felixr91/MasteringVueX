@@ -15,7 +15,8 @@ const router = new Router({
     {
       path: '/',
       name: 'event-list',
-      component: EventList
+      component: EventList, 
+      props: true
     },
     {
       path: '/event/create',
@@ -45,5 +46,7 @@ router.beforeEach((routeTo, routeFrom, next) => {
 router.afterEach(() => {
   NProgress.done()
 })
+
+// route guards are used so that you can call actions before the component is created. 
 
 export default router

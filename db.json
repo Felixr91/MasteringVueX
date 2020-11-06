@@ -285,6 +285,24 @@
       "date": "2020-10-10T20:14:00.000Z",
       "time": "6:00",
       "attendees": []
+    },
+    {
+      "id": 8746006,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Making Beats",
+      "description": "something goes here",
+      "location": "Nuerolux",
+      "date": "2020-11-20T19:32:00.000Z",
+      "time": "18:00",
+      "attendees": []
     }
   ]
 }

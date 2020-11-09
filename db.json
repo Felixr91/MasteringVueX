@@ -303,6 +303,24 @@
       "date": "2020-11-20T19:32:00.000Z",
       "time": "18:00",
       "attendees": []
+    },
+    {
+      "id": 3629651,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Puppy Parade",
+      "description": "Love the poochies",
+      "location": "Boise",
+      "date": "2020-11-07T23:40:00.000Z",
+      "time": "11:00",
+      "attendees": []
     }
   ]
 }

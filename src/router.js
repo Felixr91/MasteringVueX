@@ -7,6 +7,8 @@ import 'nprogress/nprogress.css'
 import NProgress from 'nprogress'
 import store from '@/store/store'
 import NotFound from './views/NotFound.vue'
+import NetworkIssue from './views/NetworkIssue.vue'
+
 
 Vue.use(Router)
 
@@ -34,7 +36,16 @@ const router = new Router({
           routeTo.params.event = event
           next()
         })
-        .catch(() => next({ name: '404', params: {resource: 'event'}}))
+        .catch(error => {
+          if (error.response && error.response.status == 404) {
+            next({
+              name: '404',
+              params: { resource: 'event' }
+            })
+          } else {
+            next({ name: 'network-issue' })
+          }
+        })
       }
     }, 
     {
@@ -43,6 +54,11 @@ const router = new Router({
       component: NotFound, 
       props: true
     }, 
+    {
+      path: '/network-issue', 
+      name: 'network-issue', 
+      component: NetworkIssue
+    },
     {
       path: '*', 
       redirect: { name: '404', params: { resource: 'page'} }

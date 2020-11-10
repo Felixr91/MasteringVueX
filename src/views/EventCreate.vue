@@ -2,11 +2,17 @@
   <div>
     <h1>Create an Event</h1>
     <form @submit.prevent="createEvent">
-      <BaseSelect 
-        label="Select a category"
-        :options="categories"
-        v-model="event.category"
-      />
+
+    <BaseSelect
+      label="Select a category"
+      :options="categories"
+      v-model="event.category"
+      :class="{ error: $v.event.category.$error}"
+      @blur="$v.event.category.$touch()"
+    />
+    <template v-if="$v.event.category.$error">
+      <p v-if="!$v.event.category.required" class="errorMessage">Category is required.</p>
+    </template>
 
       <h3>Name & describe your event</h3>
       <BaseInput
@@ -55,6 +61,7 @@
 <script>
 import Datepicker from 'vuejs-datepicker'
 import NProgress from 'nprogress'
+import { required } from 'vuelidate/lib/validators'
 
 export default {
   components: {
@@ -69,6 +76,16 @@ export default {
       times,
       categories: this.$store.state.categories,
       event: this.createFreshEventObject()
+    }
+  },
+  validations: {
+    event: {
+        category: { required },
+        title: { required },
+        description: { required },
+        location: { required },
+        date: { required },
+        time: { required },
     }
   },
   methods: {

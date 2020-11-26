@@ -89,6 +89,7 @@ export default {
     }
   },
   methods: {
+    // test
     createEvent() {
       NProgress.start()
       this.$store
